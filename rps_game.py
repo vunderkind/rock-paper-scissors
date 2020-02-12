@@ -22,6 +22,7 @@ def show_historical_data_message():
 
 def get_user_choice():
     choice = input("[1] rock   [2] paper   [3] scissors    [9] quit\n")
+    # print("Last time, you chose")
     return choice_options[int(choice)]
 
 
