@@ -45,12 +45,15 @@ def display_result_message_and_update_score(result):
     if result == "tie":
         print(tie_message + " The computer ALSO selected " + computer_choice )
         score["ties"] += 1
+        show_historical_data_message()
     elif result == "win":
         print(win_message + computer_exposed)
         score["wins"] += 1
+        show_historical_data_message()
     else:
         print(loss_message + computer_exposed)
         score["losses"] += 1
+        show_historical_data_message()
 
 score =  {
     "wins": 0,
