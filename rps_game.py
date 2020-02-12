@@ -25,6 +25,7 @@ def get_user_choice():
     return choice_options[int(choice)]
 
 
+
 def quit_game(wins, ties, losses):
     text_file = open("history.txt", "w")
     text_file.write(str(wins) + "," + str(ties) + "," + str(losses))
@@ -42,13 +43,13 @@ def compare_choices_and_get_result(user, computer):
 
 def display_result_message_and_update_score(result):
     if result == "tie":
-        print(tie_message)
+        print(tie_message + " The computer ALSO selected " + computer_choice )
         score["ties"] += 1
     elif result == "win":
-        print(win_message)
+        print(win_message + computer_exposed)
         score["wins"] += 1
     else:
-        print(loss_message)
+        print(loss_message + computer_exposed)
         score["losses"] += 1
 
 score =  {
@@ -86,6 +87,7 @@ user_choice = get_user_choice()
 ### Game Loop
 while user_choice != "quit":
     computer_choice = choice_options[random.randint(1, 3)]
+    computer_exposed = " The computer selected " + computer_choice
     result = compare_choices_and_get_result(user_choice, computer_choice)
     display_result_message_and_update_score(result)
     user_choice = get_user_choice()
